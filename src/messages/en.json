@@ -1,0 +1,67 @@
+{
+  "Profile": {
+    "about": {
+      "p1": "I'm a software engineer who loves to learn and adapts fast to any project or technology. I'm resilient and persevere to deliver in complex environments.",
+      "p2": "Core stack: Java, Spring Boot, Angular. Comfortable with SQL/NoSQL. Experience with Node.js and DevOps (CI/CD, Docker, Kubernetes) with a focus on observability and performance.",
+      "p3": "Proven learning speed and adaptability: moved to Node.js at Proximus and contributed across the stack. At ARHS Group Part of Accenture, consulting for the European Commission on CBAM, I own backend and frontend modules, improve CI/CD, and help the team move forward—always doing everything in my power to get the job done."
+    }
+  },
+  "Experience": {
+    "title": "Experience",
+    "present": "present",
+    "months": "months",
+    "type": {
+      "professional": "Professional",
+      "internship": "Internship",
+      "gapfiller": "Project"
+    },
+    "xp-proximus-intern": {
+      "title": "Full-Stack Developer Intern (Java/Angular)",
+      "summary": "Learned fast in a large microservices project and delivered Java/Angular features while collaborating in English with an international team."
+    },
+    "xp-proximus-node": {
+      "title": "Full-Stack Developer (Node.js webshop)",
+      "summary": "Adapted quickly to a new Node.js stack and shipped end‑to‑end features for the new webshop with cross‑functional teams."
+    },
+    "xp-arhs-carbon": {
+      "title": "Junior Software Engineer — European Commission (CBAM)",
+      "summary": "Took ownership of key modules (backend and Angular), improved CI/CD, and supported performance testing for the European Commission CBAM project."
+    }
+  },
+  "Education": {
+    "title": "Education",
+    "present": "present",
+    "edu-uni": {
+      "degree": "Bachelor's in Computer Science",
+      "honors": "with honors"
+    },
+    "edu-arn": {
+      "degree": "General secondary education",
+      "honors": "with distinction"
+    }
+  },
+  "Skills": {
+    "title": "Skills"
+  },
+  "About": {
+    "stats": {
+      "months": "months of experience",
+      "companies": "companies & clients"
+    },
+    "keywords": {
+      "title": "Core strengths",
+      "value1": "Adaptability",
+      "value2": "Communication",
+      "value3": "Resilience",
+      "value4": "Perseverance"
+    }
+  },
+  "Hero": {
+    "title": "Adaptable, fast‑learning software engineer. Resilient and persevering.",
+    "availability": "Available for freelance"
+  },
+  "UI": {
+    "language": "Language",
+    "changeLanguage": "Change language"
+  }
+}

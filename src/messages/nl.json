@@ -1,0 +1,70 @@
+{
+  "Profile": {
+    "about": {
+      "p1": "Ik ben een software engineer die graag leert en snel nieuwe projecten en technologieën oppikt. Veerkrachtig en volhardend lever ik in complexe omgevingen.",
+      "p2": "Kernstack: Java, Spring Boot, Angular. Vertrouwd met SQL/NoSQL. Ervaring met Node.js en DevOps (CI/CD, Docker, Kubernetes) met focus op observability en performance.",
+      "p3": "Snel leren en aanpasbaarheid aangetoond: overgestapt naar Node.js bij Proximus en breed bijgedragen. Bij ARHS Group Part of Accenture, in consult voor de Europese Commissie op CBAM, neem ik backend- en frontendmodules op, verbeter ik CI/CD en help ik het team vooruit — ik doe alles wat in mijn macht ligt om de taak te volbrengen."
+    }
+  },
+  "Experience": {
+    "title": "Ervaring",
+    "present": "heden",
+    "months": "maanden",
+    "type": {
+      "professional": "Professioneel",
+      "internship": "Stage",
+      "gapfiller": "Project"
+    },
+    "xp-proximus-intern": {
+      "title": "Full-Stack Developer Stagiair (Java/Angular)",
+      "summary": "Snel geleerd in een groot microservices‑project en Java/Angular-features geleverd, samenwerken in het Engels met een internationaal team."
+    },
+    "xp-proximus-node": {
+      "title": "Full-Stack Developer (Node.js webshop)",
+      "summary": "Snel aangepast aan een nieuwe Node.js‑stack en end‑to‑end features geleverd voor de nieuwe webshop met multidisciplinaire teams."
+    },
+    "xp-arhs-carbon": {
+      "title": "Junior Software Engineer — Europese Commissie (CBAM)",
+      "summary": "Eigenaarschap genomen van kernmodules (backend en Angular), CI/CD verbeterd en performance‑testen ondersteund voor het CBAM‑project van de Europese Commissie."
+    }
+  },
+  "Education": {
+    "title": "Opleiding",
+    "present": "heden",
+    "edu-uni": {
+      "degree": "Bachelor in de informatica",
+      "honors": "met onderscheiding"
+    },
+    "edu-arn": {
+      "degree": "Algemeen secundair onderwijs",
+      "honors": "met onderscheiding"
+    }
+  },
+  "Skills": {
+    "title": "Vaardigheden"
+  },
+  "About": {
+    "stats": {
+      "months": "maanden ervaring",
+      "companies": "bedrijven & klanten"
+    },
+    "keywords": {
+      "title": "Kernsterktes",
+      "value1": "Aanpasbaarheid",
+      "value2": "Communicatie",
+      "value3": "Veerkracht",
+      "value4": "Volharding"
+    }
+  },
+  "Hero": {
+    "title": "Aanpasbare, snel lerende software engineer. Veerkrachtig en volhardend.",
+    "availability": "Beschikbaar voor freelance"
+  },
+  "Conferences": {
+    "title": "Conferenties"
+  },
+  "UI": {
+    "language": "Taal",
+    "changeLanguage": "Taal wijzigen"
+  }
+}

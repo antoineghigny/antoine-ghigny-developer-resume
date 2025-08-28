@@ -1,0 +1,70 @@
+{
+  "Profile": {
+    "about": {
+      "p1": "Ingénieur logiciel qui aime apprendre, s’adapte très vite à tout projet ou technologie. Résilient, je persévère pour délivrer dans des environnements complexes.",
+      "p2": "Stack de base : Java, Spring Boot, Angular. À l’aise avec SQL/NoSQL. Expérience Node.js et DevOps (CI/CD, Docker, Kubernetes) avec un focus observabilité et performance.",
+      "p3": "Apprentissage rapide et adaptabilité prouvés : passage à Node.js chez Proximus avec une contribution sur l’ensemble de la stack. Chez ARHS Group Part of Accenture, en consultance pour la Commission européenne sur CBAM, je prends en charge des modules backend et frontend, j’améliore la CI/CD et j’aide l’équipe à avancer — je mets tout en œuvre pour accomplir la tâche."
+    }
+  },
+  "Experience": {
+    "title": "Expérience",
+    "present": "présent",
+    "months": "mois",
+    "type": {
+      "professional": "Professionnel",
+      "internship": "Stage",
+      "gapfiller": "Projet"
+    },
+    "xp-proximus-intern": {
+      "title": "Stagiaire Full-Stack (Java/Angular)",
+      "summary": "Apprentissage rapide dans un grand projet microservices et livraison de fonctionnalités Java/Angular en collaboration (équipe internationale, anglais)."
+    },
+    "xp-proximus-node": {
+      "title": "Développeur Backend Node.js & Frontend Angular (nouveau webshop)",
+      "summary": "Adaptation rapide à une nouvelle stack Node.js et livraison de fonctionnalités de bout en bout pour le nouveau webshop avec des équipes pluridisciplinaires."
+    },
+    "xp-arhs-carbon": {
+      "title": "Ingénieur Logiciel Junior — Commission européenne (CBAM)",
+      "summary": "Prise en charge de modules clés (backend et Angular), amélioration de la CI/CD et support des tests de performance pour le projet CBAM de la Commission européenne."
+    }
+  },
+  "Education": {
+    "title": "Éducation",
+    "present": "présent",
+    "edu-uni": {
+      "degree": "Bachelier en Informatique",
+      "honors": "avec distinction"
+    },
+    "edu-arn": {
+      "degree": "Enseignement secondaire général",
+      "honors": "avec distinction"
+    }
+  },
+  "Skills": {
+    "title": "Compétences"
+  },
+  "About": {
+    "stats": {
+      "months": "mois d'expérience",
+      "companies": "entreprises & clients"
+    },
+    "keywords": {
+      "title": "Forces clés",
+      "value1": "Adaptabilité",
+      "value2": "Communication",
+      "value3": "Résilience",
+      "value4": "Persévérance"
+    }
+  },
+  "Hero": {
+    "title": "Ingénieur logiciel adaptable et apprenant rapide. Résilient et persévérant.",
+    "availability": "Disponible pour freelance"
+  },
+  "Conferences": {
+    "title": "Conférences"
+  },
+  "UI": {
+    "language": "Langue",
+    "changeLanguage": "Changer la langue"
+  }
+}

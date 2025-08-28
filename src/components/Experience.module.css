@@ -1,0 +1,71 @@
+/* Experience and card carousel (scoped) */
+.xpHscroll { position: relative; padding: 80px 20px; }
+.xpContainer { position: relative; }
+@media (min-width: 900px){
+  .xpContainer { overflow: visible; }
+}
+.xpStage { position: relative; margin-top: 0; overflow: hidden; }
+@media (min-width: 1024px){
+  .xpStage { min-height: 100vh; display:flex; flex-direction: column; justify-content:center; }
+}
+@media (min-width: 900px) and (max-width: 1023px){
+  .xpStage { min-height: 80vh; display:flex; flex-direction: column; justify-content:center; }
+}
+.xpViewport { position: relative; width: 100%; overflow: hidden; contain: paint; isolation: isolate; will-change: transform; transform: translateZ(0); clip-path: inset(0); }
+.xpTrack { display:flex; gap:24px; align-items:stretch; will-change: transform; backface-visibility: hidden; }
+.xpCard { position:relative; flex: 1 0 clamp(320px, 40vw, 560px); min-height:400px; overflow:hidden; cursor:pointer;
+  transition: flex-grow 260ms cubic-bezier(.2,.8,.2,1), transform 200ms cubic-bezier(.22,.61,.36,1), box-shadow 200ms cubic-bezier(.22,.61,.36,1), opacity 180ms ease;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px)) scale(var(--scale, 1)) translateZ(0);
+  transform-style: preserve-3d; will-change: transform; contain: layout paint; backface-visibility: hidden; }
+.xpCardCard { display:flex; flex-direction:column; }
+.xpBody { display:flex; flex-direction:column; gap:10px; height:100%; }
+.xpBody .tlTech { margin-top:auto; }
+.xpCardHovered { --lift: -1px; --scale: 1.005; box-shadow: 0 8px 16px rgba(0,0,0,0.18); }
+.xpCardDimmed { opacity:0.65; }
+.xpHead { display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+.xpTitle { margin:0; font-size: clamp(20px, 3.8vw, 28px); }
+.xpMeta { color: var(--muted); font-size:14px; }
+.xpSummary { margin-top:8px; color:#cfd4e6; overflow-wrap: anywhere; }
+.xpSpacer { flex:0 0 32vw; }
+.xpSpacerStart { flex: 0 0 24vw; }
+@media (min-width: 1024px){
+  .xpSpacer { flex-basis: 50vw; }
+  .xpSpacerStart { flex-basis: 50vw; }
+  /* Clamp long copy to keep cards equal height on desktop */
+  .xpSummary { 
+    display: -webkit-box; 
+    -webkit-line-clamp: 4; 
+    line-clamp: 4; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+  }
+}
+
+@media (max-width: 1023px){
+  .xpViewport { overflow-x:auto; overflow-y: visible; scroll-snap-type: x mandatory; }
+  .xpStage { overflow: visible; }
+  .xpTrack { padding-bottom: 4px; }
+  .xpCard { scroll-snap-align: start; flex: 0 0 88%; transform: none; min-height: 360px; }
+  /* Allow longer summaries without breaking interaction */
+  .xpSummary {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .xpCard { transform: none !important; }
+}
+
+/* Heading spacing near stage */
+.xpHeading { margin-bottom: 12px; }
+
+/* Tech chips within cards */
+.tlTech { display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
+
+/* Full-card overlay button for accessibility (replaces role="button" on article) */
+.xpCardBtn { position:absolute; inset:0; background:transparent; border:0; padding:0; cursor:pointer; z-index:2; }
+.xpCardBtn:focus-visible { outline: 2px solid var(--accent, #7c5cff); outline-offset: 4px; border-radius: 10px; }

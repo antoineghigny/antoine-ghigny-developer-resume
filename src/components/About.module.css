@@ -1,0 +1,68 @@
+/* About section (scoped) */
+.aboutStory { padding-top: 80px; padding-bottom: 80px }
+.aboutStats { position: sticky; top: 96px; align-self: start; display: grid; gap: 16px }
+.aboutStat { display: grid; gap: 4px }
+.aboutStat :global(.num) {
+  /* Bold, stylistic display (match Hero family) */
+  font-family: var(--font-grotesk), var(--font-inter), ui-sans-serif;
+  font-size: clamp(42px, 8.2vw, 96px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  /* Stylistic gradient text */
+  background: linear-gradient(180deg, #ffffff, #dcd5ff 55%, #7c5cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.6px rgba(124,92,255,0.35);
+  text-shadow: 0 8px 30px rgba(124,92,255,0.18);
+}
+.aboutStat :global(.label) { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em }
+
+/* Local classes to style stats explicitly */
+.statNum{
+  font-family: var(--font-grotesk), var(--font-inter), ui-sans-serif;
+  font-size: clamp(42px, 8.2vw, 96px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  background: linear-gradient(180deg, #ffffff, #dcd5ff 55%, #7c5cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.6px rgba(124,92,255,0.35);
+  text-shadow: 0 8px 30px rgba(124,92,255,0.18);
+}
+.statLabel{ color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em }
+@media (max-width: 899px){
+  .aboutStats{
+    position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 16px;
+  }
+  .aboutStat{ text-align:center }
+}
+
+/* Keyword highlight sweep (scoped to About) */
+.kwLine{ position: relative }
+.kw{ background-image: linear-gradient(100deg, rgba(124,92,255,0.22), rgba(52,199,255,0.18));
+  background-repeat: no-repeat; background-position: 0 90%; background-size: 100% 0%; border-radius: 4px; padding: 0 2px }
+@media (prefers-reduced-motion: reduce){
+  .kw{ background-size: 100% 40% }
+}
+
+/* Subtle shimmer on highlighted keywords (doesn't interfere with background-size tween) */
+.kwShimmer{
+  animation: kwTwinkle 3.6s ease-in-out infinite;
+}
+@keyframes kwTwinkle{
+  0%, 100% { text-shadow: 0 8px 30px rgba(124,92,255,0.18) }
+  50% { text-shadow: 0 8px 36px rgba(124,92,255,0.26), 0 0 14px rgba(255,255,255,0.28) }
+}
+@media (prefers-reduced-motion: reduce){
+  .kwShimmer{ animation: none }
+}

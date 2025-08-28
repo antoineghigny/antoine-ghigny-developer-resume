@@ -1,0 +1,24 @@
+/* Component-scoped styles for Hero */
+
+.heroInner {
+  position: relative;
+  padding-top: 42px;
+}
+
+.availBadge {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  z-index: 10;
+  cursor: pointer;
+  /* Smooth animated entrance: use compositor & isolate paints */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: paint;
+}
+
+/* Prevent hover scaling on availability pill only */
+.availBadge:hover {
+  transform: none;
+}
