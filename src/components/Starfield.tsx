@@ -130,14 +130,20 @@ export default function Starfield({ density = 1 }: Readonly<{ density?: number }
     };
 
     const onMouse = (e: MouseEvent) => { mouseX = e.clientX; mouseY = e.clientY; };
-    window.addEventListener("mousemove", onMouse);
+    // Only add mouse listener on non-touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (!isTouchDevice) {
+      window.addEventListener("mousemove", onMouse);
+    }
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
     resize();
     rafRef.current = requestAnimationFrame(draw);
 
     return () => {
-      window.removeEventListener("mousemove", onMouse);
+      if (!isTouchDevice) {
+        window.removeEventListener("mousemove", onMouse);
+      }
       ro.disconnect();
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };

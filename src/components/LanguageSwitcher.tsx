@@ -71,12 +71,15 @@ export default function LanguageSwitcher() {
 
   const optionsId = 'lang-options';
 
+  // Detect touch device
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
   return (
     <div
       ref={containerRef}
       className={styles.langOrbContainer}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
+      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
       onKeyDown={onKeyDown}
       role="button"
       tabIndex={0}
