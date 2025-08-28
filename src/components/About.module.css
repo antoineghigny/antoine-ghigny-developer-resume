@@ -45,6 +45,12 @@
     gap: 16px;
   }
   .aboutStat{ text-align:center }
+  .statNum{
+    font-size: clamp(52px, 10vw, 110px);
+  }
+  .statLabel{
+    font-size: 14px;
+  }
 }
 
 /* Keyword highlight sweep (scoped to About) */

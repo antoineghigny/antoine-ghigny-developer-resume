@@ -2,7 +2,6 @@ import "./globals.css";
 import React from "react";
 import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
-import GlobalBackground from "@/components/GlobalBackground";
 import BackToTop from "@/components/BackToTop";
 import {Inter, Space_Grotesk, JetBrains_Mono} from "next/font/google";
 
@@ -44,7 +43,6 @@ export default function RootLayout({
         </noscript>
         <SmoothScroll />
         <div className="app-root">
-          <GlobalBackground />
           <div className="app-content">
             {children}
           </div>

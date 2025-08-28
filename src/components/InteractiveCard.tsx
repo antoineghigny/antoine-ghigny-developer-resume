@@ -28,6 +28,13 @@ export default function InteractiveCard({
     const el = ref.current;
     if (!el) return;
 
+    // Disable interactive effects on touch devices
+    const isTouchDevice = window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (isTouchDevice) {
+      el.style.setProperty("--spot-opacity", "0");
+      return;
+    }
+
     const onEnter = () => {
       state.current.hovering = true;
       state.current.scale = hoverScale;

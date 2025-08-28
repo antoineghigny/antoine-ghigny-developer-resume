@@ -63,6 +63,7 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const splits: any[] = [];
       const titleEl = el.querySelector(".hero-title") as HTMLElement | null;
+      const taglineEl = el.querySelector(".hero-tagline") as HTMLElement | null;
       const subEl = el.querySelector(".hero-sub") as HTMLElement | null;
       const badgeEl = el.querySelector(".keyword-tag.available") as HTMLElement | null;
       const chips = el.querySelectorAll(".chip");
@@ -72,6 +73,7 @@ export default function Hero() {
 
       // Pre-hide to avoid initial flash before animations bind (autoAlpha controls visibility)
       if (titleEl) gsap.set(titleEl, { autoAlpha: 0, y: 8, css: { "--glow": 0 } });
+      if (taglineEl) gsap.set(taglineEl, { autoAlpha: 0, y: 8 });
       if (subEl) gsap.set(subEl, { autoAlpha: 0, y: 8 });
       if (badgeEl) gsap.set(badgeEl, { autoAlpha: 0, y: 8 });
       if (chips.length) gsap.set(chips, { autoAlpha: 0, y: 10 });
@@ -82,12 +84,12 @@ export default function Hero() {
         let fallbackFired = false;
         const fallback = setTimeout(() => {
           fallbackFired = true;
-          gsap.to([titleEl, subEl, badgeEl], { autoAlpha: 1, y: 0, duration: 0.12, ease: "power1.out" });
+          gsap.to([titleEl, taglineEl, subEl, badgeEl], { autoAlpha: 1, y: 0, duration: 0.12, ease: "power1.out" });
           gsap.to(chips, { autoAlpha: 1, y: 0, duration: 0.12, ease: "power1.out" });
         }, 600);
         if (reduced) {
           clearTimeout(fallback);
-          gsap.to([titleEl, subEl, badgeEl], { autoAlpha: 1, y: 0, duration: 0.001, ease: "none" });
+          gsap.to([titleEl, taglineEl, subEl, badgeEl], { autoAlpha: 1, y: 0, duration: 0.001, ease: "none" });
           gsap.to(chips, { autoAlpha: 1, y: 0, duration: 0.001, ease: "none" });
           return;
         }
@@ -149,6 +151,17 @@ export default function Hero() {
             gsap.to(titleEl, { duration: 2.0, ease: "sine.inOut", repeat: -1, yoyo: true, "--glow": 0.6 });
           }
         }
+        if (taglineEl) {
+          if (!fallbackFired) {
+            gsap.to(taglineEl, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.5,
+              ease: "power2.out",
+              delay: 0.4,
+            });
+          }
+        }
         if (subEl) {
           const split = new SplitType(subEl, { types: "words" });
           splits.push(split);
@@ -160,7 +173,7 @@ export default function Hero() {
               duration: 0.6,
               ease: "power3.out",
               stagger: 0.03,
-              delay: 0.05,
+              delay: 0.6,
             });
           }
         }
@@ -284,8 +297,11 @@ export default function Hero() {
           {t('availability')}
         </button>
         <h1 className="h1 hero-title" style={{ opacity: 0, transform: "translateY(8px)" }}>Antoine Ghigny</h1>
-        <p className="p hero-sub" style={{ marginBottom: 16, opacity: 0, transform: "translateY(8px)" }}>
+        <p className="p hero-tagline" style={{ marginBottom: 8, opacity: 0, transform: "translateY(8px)", fontSize: '1.1rem', color: 'var(--text-secondary)' }}>
           {t('title')}
+        </p>
+        <p className="p hero-sub" style={{ marginBottom: 16, opacity: 0, transform: "translateY(8px)" }}>
+          {t('subtitle')}
         </p>
         <div className="chips" style={{ marginTop: 8 }}>
           <span className="chip" data-magnetic style={{ opacity: 0, transform: "translateY(10px)" }}><TechIcon label="JA" color="#f89820" size={22} />Java</span>
