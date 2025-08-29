@@ -78,7 +78,6 @@ section{ padding:64px 20px; }
 
 /* Disable interactive effects on touch devices */
 @media (hover: none) and (pointer: coarse) {
-  .interactive-card,
   .chip,
   .keyword-tag {
     transform: none !important;

@@ -84,6 +84,22 @@ export default function ExperienceCard({
     rafMap.current.set(card, id);
   };
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLButtonElement>) => {
+    if (e.touches.length !== 1 || reduceMotion) return;
+    const card = e.currentTarget.parentElement as HTMLElement;
+    
+    card.style.transition = 'transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    card.style.transform = `scale(1.02)`;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLButtonElement>) => {
+    if (reduceMotion) return;
+    const card = e.currentTarget.parentElement as HTMLElement;
+    
+    card.style.transition = 'transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    card.style.transform = `scale(1)`;
+  };
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     onToggleActive(i);
     const card = e.currentTarget.parentElement as HTMLElement;
@@ -113,6 +129,9 @@ export default function ExperienceCard({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
       />

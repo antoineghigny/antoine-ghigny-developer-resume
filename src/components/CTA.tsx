@@ -9,7 +9,7 @@ export default function CTA(){
       <InteractiveCard className="anim-child" data-reveal="up" style={{textAlign:'center'}}>
         <h2 className="h2">Let’s build something great</h2>
         <p className="p" style={{margin:'8px 0 16px'}}>Available for freelance missions. I can help with backend microservices, front-end apps, and DevOps.</p>
-        <a className="badge" href="mailto:antoine.ghigny+freelance@example.com">Contact me</a>
+        <a className="badge" href="mailto:antoine@ghigny.be">Contact me</a>
       </InteractiveCard>
     </AnimatedSection>
   );

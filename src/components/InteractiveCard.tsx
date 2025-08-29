@@ -37,18 +37,11 @@ export default function InteractiveCard({
       raf.current = requestAnimationFrame(() => {
         raf.current = null;
         const { rx, ry, scale } = state.current;
-        // Smooth transitions for mobile
-        if (isTouchDevice) {
-          el.style.transition = 'transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1)';
-          el.style.transform = `scale(${scale})`;
-        } else {
-          el.style.transition = '';
-          el.style.transform = `perspective(1000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(${scale})`;
-        }
+        el.style.transform = `perspective(1000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(${scale})`;
       });
     };
 
-    // Always add touch interactions for mobile devices
+    // Touch interactions for mobile devices - simple scale only
     const onTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         state.current.scale = 1.02;
@@ -65,59 +58,53 @@ export default function InteractiveCard({
     el.addEventListener("touchend", onTouchEnd, { passive: true });
     el.addEventListener("touchcancel", onTouchEnd, { passive: true });
 
-    if (isTouchDevice) {
-      // Mobile: Disable spot opacity
+    const onEnter = () => {
+      state.current.hovering = true;
+      state.current.scale = hoverScale;
+      el.style.setProperty("--spot-opacity", "1");
+    };
+
+    const onLeave = () => {
+      state.current.hovering = false;
+      state.current.rx = 0; state.current.ry = 0; state.current.scale = 1;
       el.style.setProperty("--spot-opacity", "0");
-      
-      return () => {
-        el.removeEventListener("touchstart", onTouchStart);
-        el.removeEventListener("touchend", onTouchEnd);  
-        el.removeEventListener("touchcancel", onTouchEnd);
-        if (raf.current != null) cancelAnimationFrame(raf.current);
-      };
+      schedule();
+    };
+
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      el.style.setProperty("--mx", `${x}px`);
+      el.style.setProperty("--my", `${y}px`);
+
+      const px = (x / rect.width) - 0.5;
+      const py = (y / rect.height) - 0.5;
+      state.current.ry = px * maxTiltDeg;
+      state.current.rx = -py * maxTiltDeg;
+      schedule();
+    };
+
+    if (isTouchDevice) {
+      el.style.setProperty("--spot-opacity", "0");
     } else {
-      // Desktop: Mouse interactions with tilt and scale
-      const onEnter = () => {
-        state.current.hovering = true;
-        state.current.scale = hoverScale;
-        el.style.setProperty("--spot-opacity", "1");
-      };
-
-      const onLeave = () => {
-        state.current.hovering = false;
-        state.current.rx = 0; state.current.ry = 0; state.current.scale = 1;
-        el.style.setProperty("--spot-opacity", "0");
-        schedule();
-      };
-
-      const onMove = (e: MouseEvent) => {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        el.style.setProperty("--mx", `${x}px`);
-        el.style.setProperty("--my", `${y}px`);
-
-        const px = (x / rect.width) - 0.5; // -0.5..0.5
-        const py = (y / rect.height) - 0.5;
-        state.current.ry = px * maxTiltDeg;      // yaw
-        state.current.rx = -py * maxTiltDeg;     // pitch
-        schedule();
-      };
-
+      el.style.transition = '';
       el.addEventListener("mouseenter", onEnter);
       el.addEventListener("mouseleave", onLeave);
       el.addEventListener("mousemove", onMove);
-      
-      return () => {
-        el.removeEventListener("touchstart", onTouchStart);
-        el.removeEventListener("touchend", onTouchEnd);  
-        el.removeEventListener("touchcancel", onTouchEnd);
+    }
+    
+    return () => {
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);  
+      el.removeEventListener("touchcancel", onTouchEnd);
+      if (!isTouchDevice) {
         el.removeEventListener("mouseenter", onEnter);
         el.removeEventListener("mouseleave", onLeave);
         el.removeEventListener("mousemove", onMove);
-        if (raf.current != null) cancelAnimationFrame(raf.current);
-      };
-    }
+      }
+      if (raf.current != null) cancelAnimationFrame(raf.current);
+    };
   }, [hoverScale, maxTiltDeg]);
 
   return (
